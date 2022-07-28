@@ -15,10 +15,13 @@ dotenv.config({path:"./config/config.env"})
 mongoose.connect(process.env.DB_URL, {useNewUrlParser:true, useUnifiedTopology:true}).then(
     (data)=>{console.log(`Connected to mongodb`)}).catch((err)=>console.log(err))
 
+
+//Server
 const app = express();
 
 const PORT = process.env.PORT || 5000;
 
+app.use(express.json())
 app.use("/api/v1", productRouter)
 
 app.get('/', (req, res) => {
