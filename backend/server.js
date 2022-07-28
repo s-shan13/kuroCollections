@@ -7,8 +7,13 @@ const dotenv = require('dotenv');
 
 //Route imports
 const productRouter = require("./routes/productRoute")
+
 //config
-dotenv.config({path:"backend/config/config.env"})
+dotenv.config({path:"./config/config.env"})
+
+//Connect to database
+mongoose.connect(process.env.DB_URL, {useNewUrlParser:true, useUnifiedTopology:true}).then(
+    (data)=>{console.log(`Connected to mongodb`)}).catch((err)=>console.log(err))
 
 const app = express();
 
