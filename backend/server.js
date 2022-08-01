@@ -8,6 +8,7 @@ const errorMiddleware = require('./middleware/error')
 
 //Route imports
 const productRouter = require("./routes/productRoute")
+const userRouter = require("./routes/userRoute")
 
 //Handling uncaught exception
 process.on("uncaughtException", (err)=>{
@@ -32,6 +33,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json())
 app.use(cors())
 app.use("/api/v1", productRouter)
+app.use("/api/v1", userRouter)
 app.use(errorMiddleware)
 
 //routing
