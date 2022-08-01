@@ -14,6 +14,10 @@ const productSchema = new mongoose.Schema({
         type:Number,
         required:[true, "Enter price"]
     },
+    collections:{
+        type:String,
+        required:[true, "Enter the collection name"]
+    },
     rating:{
         type:Number,
         default:0
@@ -57,7 +61,8 @@ const productSchema = new mongoose.Schema({
     createdAt:{
         type:Date,
         default: Date.now
-    }
+    },
+    
 })
 
 module.exports = mongoose.model("Product", productSchema)
