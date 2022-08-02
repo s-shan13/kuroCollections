@@ -4,7 +4,8 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const errorMiddleware = require('./middleware/error')
+const errorMiddleware = require('./middleware/error');
+const cookieParser = require('cookie-parser');
 
 //Route imports
 const productRouter = require("./routes/productRoute")
@@ -31,6 +32,7 @@ const PORT = process.env.PORT || 5000;
 
 //middleware
 app.use(express.json())
+app.use(cookieParser())
 app.use(cors())
 app.use("/api/v1", productRouter)
 app.use("/api/v1", userRouter)
