@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema({
     name:{
@@ -30,12 +31,25 @@ const userSchema = new mongoose.Schema({
 })
 
 userSchema.pre("save", async function(next){
+    console.log(1)
     //Only rehash password if it is modified
-    if(this.isModified("password")){
-        this.password = await bcrypt.hash(this.password, 10)
-    }else{
-        next()
+    if(!this.isModified("password")){
+        next()   
+        
     }
+    this.password = await bcrypt.hash(this.password, 10)
 }) 
+
+//JWT token
+userSchema.methods.getJWTToken = function(){
+    return jwt.sign({id:this._id}, process.env.JWT_SECRET,{
+        expiresIn: process.env.JWT_EXPIRE
+    })
+}
+
+//Compare input password to hashed password
+userSchema.methods.comparePassword = async function(enteredPass){
+    return await bcrypt.compare(enteredPass, this.password);
+}
 
 module.exports = mongoose.model("User", userSchema);

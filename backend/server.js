@@ -12,7 +12,7 @@ const userRouter = require("./routes/userRoute")
 
 //Handling uncaught exception
 process.on("uncaughtException", (err)=>{
-    console.log(`Error: ${err.message}`)
+    console.log(`UncaughtException Error: ${err.message}`)
     console.log(`Shutting down`)
     process.exit(1)
 })
@@ -45,7 +45,7 @@ const server = app.listen(PORT)
 
 //unhandled promise rejection
 process.on("unhandledRejection", err=>{
-    console.log(`Error: ${err.message}`)
+    console.log(`Unhandled Rejection Error: ${err.message}`)
     console.log(`Shutting down`) 
 
     server.close(()=>{
