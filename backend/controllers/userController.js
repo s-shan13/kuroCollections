@@ -2,6 +2,7 @@ const ErrorHandler = require("../utils/errorhandler")
 const catchAsyncErrors = require('../middleware/catchAsyncError');
 const User = require('../models/userModel');
 const sendToken = require("../utils/jwtToken");
+const sendEmail = require("../utils/sendEmail")
 
 //Register user
 exports.registerUser = catchAsyncErrors(async(req,res,next)=>{
@@ -50,4 +51,37 @@ exports.logout = catchAsyncErrors(async(req,res,next)=>{
         success: true,
         message: "Logged out"
     })
+})
+
+//Forgot password
+exports.forgotPassword = catchAsyncErrors(async(req,res,next)=>{
+    const user = await User.findOne({email: req.body.email})
+
+    if(!user){
+        return next(new ErrorHandler("User not found", 404));
+    }
+    const resetToken = user.getResetToken();
+
+    await user.save({validateBeforeSave:false})
+
+    const resetPasswordUrl = `${req.protocol}://${req.get("host")}/api/v1/password/reset/${resetToken}`
+
+    const message = `Your password reset link:\n\n ${resetPasswordUrl}`
+
+    try {
+        await sendEmail({
+            email: user.email,
+            subject: `Kuro collections password recovery`,
+            message
+        })
+        res.status(200).json({
+            success: true,
+            message: "email sent"
+        })
+    } catch (error) {
+        user.reserPasswordToken = undefined;
+        user.resetPasswordExpire = undefined;
+        await user.save();
+        return next(new ErrorHandler(error.message, 500))
+    }
 })
