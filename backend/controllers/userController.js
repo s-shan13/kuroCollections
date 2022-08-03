@@ -3,6 +3,7 @@ const catchAsyncErrors = require('../middleware/catchAsyncError');
 const User = require('../models/userModel');
 const sendToken = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail")
+const crypto = require('crypto');
 
 //Register user
 exports.registerUser = catchAsyncErrors(async(req,res,next)=>{
@@ -53,7 +54,7 @@ exports.logout = catchAsyncErrors(async(req,res,next)=>{
     })
 })
 
-//Forgot password
+//Create reset password link
 exports.forgotPassword = catchAsyncErrors(async(req,res,next)=>{
     const user = await User.findOne({email: req.body.email})
 
@@ -70,6 +71,8 @@ exports.forgotPassword = catchAsyncErrors(async(req,res,next)=>{
 
     try {
         await sendEmail({
+            host: process.env.EMAIL_HOST,
+            port: process.env.EMAIL_PORT,
             email: user.email,
             subject: `Kuro collections password recovery`,
             message
@@ -84,4 +87,29 @@ exports.forgotPassword = catchAsyncErrors(async(req,res,next)=>{
         await user.save();
         return next(new ErrorHandler(error.message, 500))
     }
+})
+
+//reset password
+exports.resetPassword = catchAsyncErrors(async(req,res,next)=>{
+    const reserPasswordToken = crypto.createHash("sha256").update(req.params.token).digest("hex");
+
+    const user = await User.findOne({
+        reserPasswordToken,
+        resetPasswordExpire:{$gt: Date.now()}
+    })
+
+    if(!user){
+        return next(new ErrorHandler("Reset link expired", 400));
+    }
+
+    if(req.body.password != req.body.confirmPassword){
+        return next(new ErrorHandler("Passwords do not match", 400));
+    }
+
+    user.password = req.body.password;
+    user.reserPasswordToken = undefined;
+    user.resetPasswordExpire = undefined;
+    await user.save();
+
+    sendToken(user, 200, res)
 })
