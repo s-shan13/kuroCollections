@@ -1,2 +1,3 @@
 - Make new email for reset password link 
 - Verify reset password feature
+- Update ecommerce api repository

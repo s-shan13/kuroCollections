@@ -32,7 +32,6 @@ const userSchema = new mongoose.Schema({
 })
 
 userSchema.pre("save", async function(next){
-    console.log(1)
     //Only rehash password if it is modified
     if(!this.isModified("password")){
         next()   

@@ -7,13 +7,13 @@ const router = express.Router();
 router.route("/products").get(getAllProducts)
 
 //Create product (Admin)
-router.route("/product/new").post(isAuthenticated,authorizedRoles("admin"),createProduct)
+router.route("/admin/product/new").post(isAuthenticated,authorizedRoles("admin"),createProduct)
 
 //Update product (Admin)
-router.route("/product/:id").put(isAuthenticated,authorizedRoles("admin"),updateProduct)
+router.route("/admin/product/:id").put(isAuthenticated,authorizedRoles("admin"),updateProduct)
 
 //Delete product (Admin)
-router.route("/product/:id").delete(isAuthenticated,authorizedRoles("admin"), deleteProduct)
+router.route("/admin/product/:id").delete(isAuthenticated,authorizedRoles("admin"), deleteProduct)
 
 router.route("/product/:id").get(getProductDetails)
 
