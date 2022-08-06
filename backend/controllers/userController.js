@@ -224,3 +224,4 @@ exports.deleteUser = catchAsyncErrors(async(req,res)=>{
         success: true,
     })
 })
+
