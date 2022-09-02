@@ -81,7 +81,7 @@ const getAverageRating = (product) =>{
     return(avg/product.reviews.length)
 }
 /**
- * Reviews
+ * Update or create review 
  */
 exports.handleReview = catchAsyncErrors(async(req,res,next)=>{
     const review = {
@@ -92,7 +92,6 @@ exports.handleReview = catchAsyncErrors(async(req,res,next)=>{
     }
 
     const product = await Product.findById(req.body.productId);
-
 
     const reviewed = product.reviews.find(rev=>rev.user.toString() === req.user._id.toString())
     if(reviewed){
