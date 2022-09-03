@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser');
 //Route imports
 const productRouter = require("./routes/productRoute")
 const userRouter = require("./routes/userRoute")
+const orderRouter = require("./routes/orderRoute")
 
 //Handling uncaught exception
 process.on("uncaughtException", (err)=>{
@@ -23,7 +24,11 @@ dotenv.config({path:"./config/config.env"})
 
 //Connect to database
 mongoose.connect(process.env.DB_URL, {useNewUrlParser:true, useUnifiedTopology:true}).then(
-    (data)=>{console.log(`Connected to mongodb`)}) 
+    (data)=>{
+        console.log(`Connected to mongodb`)
+        console.log(`Running on port ${process.env.PORT}`)
+    }
+    ) 
 
 //Server
 const app = express();
@@ -36,6 +41,7 @@ app.use(cookieParser())
 app.use(cors())
 app.use("/api/v1", productRouter)
 app.use("/api/v1", userRouter)
+app.use("/api/v1", orderRouter)
 app.use(errorMiddleware)
 
 //routing
