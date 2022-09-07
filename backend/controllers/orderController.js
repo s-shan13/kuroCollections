@@ -75,13 +75,15 @@ exports.getAllOrders = catchAsyncErrors(async(req,res,next)=>{
 exports.updateOrderStatus = catchAsyncErrors(async(req,res,next)=>{
     
     const order = await Order.findById(req.params.id)
-
+    if (!order){
+        return next(new ErrorHandler("Product not found", 404))
+    }
     if(order.orderStatus==="Delivered"){
         return next(new ErrorHandler("Already delivered", 404))
     }
 
-    order.orderItems.forEach(async (order)=>{
-        await updateStock(order.product, order.quantity)
+    order.orderItems.forEach(async (o)=>{
+        await updateStock(o.product, o.quantity)
     })
 
     order.orderStatus = req.body.status;
