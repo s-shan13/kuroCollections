@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../images/logo.png'
 import '../css/header.css'
-import { FaRegUser } from "react-icons/fa";
+import { FaRegUser, FaRegHeart, FaShoppingBag } from "react-icons/fa";
 
 export default function Header() {
   return (
@@ -24,7 +24,9 @@ export default function Header() {
             </ul>
             {/* */}
             <div className='icons'>
-                <FaRegUser className='userIcon' size={35} />
+                <FaRegUser className='icon' size={30} />
+                <FaShoppingBag className='icon' size={30} />
+                <FaRegHeart  className='icon' size={30} />
             </div>
         </nav>
     </div>
