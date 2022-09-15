@@ -1,5 +1,5 @@
 /**
- * Header => logo, home, new,  shop all (dropdown with categories)
+ * Header => shop all (dropdown with categories)
  * Main home page
  * latest arrivals
  * Shop by category
@@ -14,7 +14,7 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path='/' component={<Home />} />
+        <Route path='/' element={<Home />} exact></Route>
       </Routes>
     </Router>
   );
