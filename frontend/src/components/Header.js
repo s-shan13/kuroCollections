@@ -33,13 +33,13 @@ export default function Header() {
             <div className='iconsDiv' >
                 <ul className='iconsList'>
                     <li>
-                        <Link to='profile'><FaRegUser className='icon mouseHover'/></Link>
+                        <Link to='/profile'><FaRegUser className='icon mouseHover'/></Link>
                     </li>
                     <li>
-                        <Link to='favourites'><FaRegHeart className='icon mouseHover'/></Link>
+                        <Link to='/favourites'><FaRegHeart className='icon mouseHover'/></Link>
                     </li>
                     <li>
-                        <Link to='bag'><FaShoppingBag className='icon mouseHover'/></Link>
+                        <Link to='/bag'><FaShoppingBag className='icon mouseHover'/></Link>
                     </li>
                 </ul>    
             </div>
