@@ -4,6 +4,7 @@ export default function AllProducts( props ) {
 
   const {filter} = props
   return (
-    <div className='mainAllProducts'>{filter}</div>
+    <div className='mainAllProducts'>
+    </div>
   )
 }

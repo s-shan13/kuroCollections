@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
+Link{
+    border: 2px solid white ;
+}
 .mainHeaderDiv{
     height: 10vh;
     background-color: black;
@@ -14,9 +16,15 @@
     width: 25%;
     display: flex;
     justify-content: center;
+
 }
 .logo {
     height: 100%;
+    text-decoration: none;
+    color: white;
+    font-family: Poppins, sans-serif;
+    display: flex;
+    align-items: center;
 }
 
 .navbarDiv{
@@ -35,7 +43,7 @@
     color: white;
     margin: 2rem;
     font-family: Poppins, sans-serif ;
-    font-weight: 1000;
+    font-weight: 4000;
 }
 .iconsDiv {
     height: 100%;

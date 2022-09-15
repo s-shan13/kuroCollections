@@ -24,8 +24,8 @@ export default function Header() {
                     <li>
                         <Link className='navLink mouseHover' to='/new-releases'>New Releases</Link>
                     </li>
-                    <li onMouseEnter={()=> setShowDropdown(true)} onMouseLeave={()=>setShowDropdown(false)}>
-                        <Link className='navLink mouseHover' to='/all' >Shop All</Link>
+                    <li onMouseLeave={()=>setShowDropdown(false)}>
+                        <Link className='navLink mouseHover' onMouseEnter={()=> setShowDropdown(true)} to='/all' >Shop All</Link>
                         <Dropdown dropdownStatus={showDropdown} />
                     </li>
                 </ul>

@@ -11,6 +11,7 @@ import NewReleases from './components/NewReleases';
 import AllProducts from './components/AllProducts';
 import UserProfile from './components/UserProfile';
 import './css/app.css'
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -26,7 +27,9 @@ function App() {
         <Route path='/profile' element={<UserProfile />} exact></Route>
         <Route path='/favourites' element={<AllProducts filter={'favourites'} />} exact></Route>
         <Route path='/bag' element={<AllProducts filter={'inCart'}/>} exact></Route>
+        
       </Routes>
+      <Footer />
     </Router>
   );
 }
