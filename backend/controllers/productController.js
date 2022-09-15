@@ -13,7 +13,7 @@ exports.createProduct = catchAsyncErrors(async(req, res, next)=>{
 //Get all products from the database
 exports.getAllProducts = catchAsyncErrors(async(req,res)=>{
 
-    const resultPerPage = 5;
+    const resultPerPage = 4;
 
     const apiFeature = new ApiFeatures(Product.find(), req.query).search().filter().pagination(resultPerPage);
     const products = await apiFeature.results;
