@@ -37,7 +37,7 @@ export default function Home() {
         <h2 className='bottom-title'>Featured Products</h2>
         <div className='product-container'>
           
-          {products && products.map((product) => <Product product={product} />)}
+          {products && products.map((product) => <Product key={product._id} product={product} />)}
           
         </div>
       </div>

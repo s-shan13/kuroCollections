@@ -1,7 +1,31 @@
 .mainAllProducts {
-    height: 100vh;
-    background-color: gray;
+    height: auto;
+    min-height: 100vh;
+    background-color: black;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    font-family: poppins, sans-serif;
+    color: white;
+}
+.mainAllProducts>h2{
+    margin-top: 10vh;
+    border-bottom: 2px solid white;
+    color: white;
+}
+.filter-container{
+    border-right: 1px solid white;
+    width: 22%;
+    height: 80vh;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+.all-products-container{
+    display: flex;
+    width: 90%;
+    flex-wrap: wrap;
+}
+.main-body{
+    display: flex;
+    width: 100%;
 }

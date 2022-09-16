@@ -29,17 +29,17 @@
 }
 
 .productCard{
-    width: 14vmax;
+    width: 18vmax;
     display: flex;
     flex-direction: column;
     text-decoration: none;
     color: white;
     font-family: Poppins, sans-serif;
     margin: 2vmax;
-    background-color: black;
+    background-color: transparent;
     border-radius: 0 0 0.5rem 0.5rem;
     justify-content: center;
-    padding-bottom: 1rem
+    padding-bottom: 2rem;
 }
 .productImg{
     border-radius: 0.5rem 0.5rem 0 0;

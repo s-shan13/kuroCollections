@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ReactStars from "react-rating-stars-component"
 
 
 
 export default function Product({ product }) {
   //Configuration for reactStarts
+
   const options = {
     edit:false,
     color: "gray",
@@ -15,7 +16,6 @@ export default function Product({ product }) {
   }
   const navigate = useNavigate()
   const handleClick = () =>{
-    console.log(1)
     navigate(`/product/${product._id}`)
   }
   return (

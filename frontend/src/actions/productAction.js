@@ -1,10 +1,13 @@
 import axios from "axios";
 
-export const getProducts = () => async (dispatch) =>{
+export const getProducts = (prodCategory="", price=[0,150]) => async (dispatch) =>{
     try {
         dispatch({type: "ALL_PRODUCT_REQ"})
+        
+        console.log(prodCategory.toLowerCase())
+        const link = `/api/v1/products?keyword=${prodCategory.toLowerCase()}&price[$gte]=${price[0]}&price[$lte]=${price[1]}`
 
-        const {data} = await axios.get("/api/v1/products")
+        const {data} = await axios.get(link)
 
         dispatch({
             type: "ALL_PRODUCT_SUCC",

@@ -2,20 +2,27 @@ import React, { useEffect } from 'react'
 import '../css/productDetails.css'
 import Carousel from "react-material-ui-carousel"
 import {useSelector, useDispatch} from 'react-redux'
-import { getProductDetails, getProducts } from '../actions/productAction'
+import { clearErrors, getProductDetails, getProducts } from '../actions/productAction'
 import { useParams } from 'react-router-dom'
 import ReactStars from 'react-rating-stars-component'
 import Product from './Product'
+import { useAlert } from 'react-alert'
 
 export default function ProductDetails() {
+    
     const {id} = useParams()
     
     const dispatch = useDispatch()
+    const alert = useAlert()
 
     const {product, loading, error} = useSelector((state)=>state.productDetails)
     const {products} = useSelector((state)=>state.products)
 
     useEffect(()=>{
+        if (error){
+            alert.error(error)
+            dispatch(clearErrors())
+        }
         dispatch(getProductDetails(id))
         dispatch(getProducts())
         window.scrollTo(0,0)
@@ -25,13 +32,13 @@ export default function ProductDetails() {
         edit: false,
         color: "black",
         activeColor: "white",
-        value:4.5,
+        value:0,
         isHalf: true,
     }
-    let newProducts
 
   return (
-    <div className='mainProductDetails'>
+    <>
+        {loading? console.log("loading"):(<div className='mainProductDetails'>
         <div className='top-container'>
             <div className='product-image-div'>
                 <Carousel>
@@ -66,6 +73,8 @@ export default function ProductDetails() {
           
             </div>
         </div>
-    </div>
+        </div>)}
+    </>
+    
   )
 }
