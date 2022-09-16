@@ -25,7 +25,9 @@
 .product-container{
     display: flex;
     justify-content: space-evenly;
+    padding: 5rem;
 }
+
 .productCard{
     width: 14vmax;
     display: flex;

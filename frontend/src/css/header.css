@@ -20,6 +20,7 @@ Link{
 }
 .logo {
     height: 100%;
+    min-height: 50px;
     text-decoration: none;
     color: white;
     font-family: Poppins, sans-serif;
@@ -29,6 +30,7 @@ Link{
 
 .navbarDiv{
     height: 100%;
+    min-height: 50px;
     width: 50%;
     display: flex;
     justify-content: center;
@@ -47,6 +49,7 @@ Link{
 }
 .iconsDiv {
     height: 100%;
+    min-height: 50px;
     width: 25%;
     display: flex;
     justify-content: center;

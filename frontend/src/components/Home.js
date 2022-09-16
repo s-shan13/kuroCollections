@@ -5,15 +5,21 @@ import Typewriter from 'typewriter-effect'
 import  MetaData  from './MetaData'
 import {getProducts} from '../actions/productAction'
 import {useSelector, useDispatch} from 'react-redux'
+import {useAlert} from 'react-alert'
 
 export default function Home() {
 
+  const alert = useAlert()
   const dispatch = useDispatch();
   const {loading, error, products, productsCount} = useSelector(state=>state.products)
 
   useEffect(()=>{
+    if(error){
+      return alert.error(error)
+    }
+
     dispatch(getProducts())
-  }, [dispatch])
+  }, [dispatch, error, alert])
 
   return (
     <div className='mainHomeDiv'>
@@ -32,7 +38,7 @@ export default function Home() {
         <div className='product-container'>
           
           {products && products.map((product) => <Product product={product} />)}
-          {console.log(products)}
+          
         </div>
       </div>
     </div>

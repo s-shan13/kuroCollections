@@ -1,0 +1,89 @@
+.mainProductDetails{
+    height: 100%;
+    color: white;
+    background-color: black;
+}
+.top-container{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15vh 0 15vh 0;
+}
+.product-image-div {
+    height:60vh;
+    width: 30%;
+    border: 1px solid white;
+    text-align: center;
+}
+.CarouselImage{
+    height: auto;
+    width: 100%;
+    min-height: 400px;
+}
+.product-details-div{
+    height: 60vh;
+    width: 20%;
+    color: white;
+    flex-direction: column;
+    font-family: poppins, sans-serif;
+    padding-left: 2rem;
+}
+
+.product-details-div>p {
+    padding-bottom: 1rem;
+}
+.desc {
+
+    font-size: small;
+}
+.qty{
+    padding-bottom: 1rem;
+
+}
+.qty>input{
+    width: 15%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+.qty>button{
+    width: 10%;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+
+}
+
+.product-details-div>button{
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    padding: 0.5rem;
+    margin-right: 1rem;
+}
+
+.qty>button:hover, .product-details-div>button:hover{
+    color: black;
+    background-color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.redTxt{
+    color: rgb(207, 80, 80);
+}
+.greenTxt{
+    color: rgb(84, 230, 230);
+}
+
+.bottom-container{
+    height: auto;
+
+}
+.moreProduct-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: white;
+    background-color: black;
+}

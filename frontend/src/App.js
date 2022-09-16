@@ -10,6 +10,7 @@ import Home from './components/Home';
 import NewReleases from './components/NewReleases';
 import AllProducts from './components/AllProducts';
 import UserProfile from './components/UserProfile';
+import ProductDetails from './components/ProductDetails'
 import './css/app.css'
 import Footer from './components/Footer';
 
@@ -19,6 +20,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} exact></Route>
+        <Route path='/product/:id' element={<ProductDetails />} exact></Route>
         <Route path='/new-releases' element={<NewReleases />} exact></Route>
         <Route path='/all' element={<AllProducts />} exact></Route>
         <Route path='/t-shirts' element={<AllProducts filter={'shirts'} />} exact></Route>
