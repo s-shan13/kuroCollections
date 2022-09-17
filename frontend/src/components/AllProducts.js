@@ -5,6 +5,7 @@ import Product from './Product'
 import { useEffect, useState } from 'react'
 import Slider from '@mui/material/Slider'
 import {withStyles} from '@mui/styles'
+import { Link } from 'react-router-dom'
 
 const CustomSlider = withStyles({
     root: {
@@ -29,6 +30,7 @@ const CustomSlider = withStyles({
 export default function AllProducts( props ) {
 
   const dispatch = useDispatch()
+
   const {products, loading, error} = useSelector(state=>state.products)
   const {prodCategory, title} = props
 
@@ -58,6 +60,11 @@ export default function AllProducts( props ) {
                 min={0}
                 max={150}
               />
+              <div className='category-links'>
+                <Link className='category-link' to="/t-shirts">T-shirts</Link>
+                <Link className='category-link' to="/jumpers">Jumpers</Link>
+                <Link className='category-link' to="/hoodies">Hoodies</Link>
+              </div>
           </div>
           <div className='all-products-container'>
             {products&&products.map(p=><Product key={p._id} product={p} />)}

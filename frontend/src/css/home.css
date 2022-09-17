@@ -30,6 +30,7 @@
 
 .productCard{
     width: 18vmax;
+    max-height: 21vmax;
     display: flex;
     flex-direction: column;
     text-decoration: none;

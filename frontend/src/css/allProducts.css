@@ -14,11 +14,11 @@
     color: white;
 }
 .filter-container{
-    border-right: 1px solid white;
-    width: 22%;
+    
+    width: 20%;
     height: 80vh;
     margin-top: 2rem;
-    padding: 1rem;
+    padding: 2rem;
 }
 .all-products-container{
     display: flex;
@@ -28,4 +28,25 @@
 .main-body{
     display: flex;
     width: 100%;
+}
+
+.category-links{
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.category-link{
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    text-align: center;
+    max-width: fit-content;
+    margin: 0.2rem;
+}
+.category-link:hover{
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
 }
