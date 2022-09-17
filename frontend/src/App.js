@@ -11,11 +11,14 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Register from './components/Register';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { checkLogin } from './actions/userAction';
+import Orders from './components/Orders'
+import UpdateProfile from './components/UpdateProfile';
 
 function App() {
   const dispatch = useDispatch()
+
   useEffect(()=>{
     dispatch(checkLogin())
   },[])
@@ -32,6 +35,9 @@ function App() {
         <Route path='/hoodies' element={<AllProducts title={'Hoodies'} prodCategory={'Hoodie'} />} exact></Route>
         <Route path='/login' element={<Login />} exact></Route>
         <Route path='/register' element={<Register />} exact></Route>
+        <Route path='/profile' element={<UserProfile />} exact></Route>
+        <Route path='/orders' element={<Orders />} exact></Route>
+        <Route path='/profile/update' element={<UpdateProfile />} exact></Route>
         <Route path='/profile' element={<UserProfile />} exact></Route>
         <Route path='/favourites' element={<AllProducts prodCategory={'favourites'} />} exact></Route>
         <Route path='/bag' element={<AllProducts filter={'inCart'}/>} exact></Route>

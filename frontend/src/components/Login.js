@@ -29,7 +29,7 @@ export default function Login() {
         }
         //Redirecting is user is already logged in
         if(isAuthenticated){
-            navigate("/profile")
+            navigate("/")
         }
       }, [dispatch,alert, error, isAuthenticated])
     
