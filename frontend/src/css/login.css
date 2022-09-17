@@ -9,7 +9,8 @@
 }
 
 .login-container{
-    height:70%;
+    height:auto;
+    min-height: 70%;
     width: 40%;
     border: 1px solid gray;
     border-radius: 0.5rem;
