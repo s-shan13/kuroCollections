@@ -49,6 +49,15 @@ export const checkLogin = () => async (dispatch) => {
     }
 }
 
+export const logout = () => async (dispatch) => {
+    try {
+        const {data} = await axios.get("api/v1/logout")
+        dispatch({type:"LOGOUT_SUCC", payload: data.user})
+    } catch (error) {
+        
+    }
+}
+
 export const clearErrors = () => async (dispatch) =>{
     dispatch({
         type: "CLEAR_ALL_ERRORS"

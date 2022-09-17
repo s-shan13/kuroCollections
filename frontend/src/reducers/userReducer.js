@@ -39,6 +39,11 @@ export const userReducer = (state={user:{}}, action)=>{
                 ...state,
                 error: null
             }
+        case "LOGOUT_SUCC":
+            return{
+                ...state,
+                isAuthenticated: false
+            }
         default:
             return state
     }

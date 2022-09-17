@@ -4,10 +4,14 @@ import logo from '../images/logo.png'
 import '../css/header.css'
 import { FaRegUser, FaRegHeart, FaShoppingBag } from "react-icons/fa";
 import Dropdown from './Dropdown';
+import UserDropdown from './UserDropdown';
+import { useSelector } from 'react-redux';
 
 export default function Header() {
 
     const [showDropdown, setShowDropdown] = useState(false)
+    const [showUserDropdown, setUserShowDropdown] = useState(false)
+    const {isAuthenticated} = useSelector(state=>state.user)
 
     return (
         <div className='mainHeaderDiv'>
@@ -32,8 +36,10 @@ export default function Header() {
             </div>
             <div className='iconsDiv' >
                 <ul className='iconsList'>
-                    <li>
-                        <Link to='/login'><FaRegUser className='icon mouseHover'/></Link>
+                    <li onMouseLeave={()=>setUserShowDropdown(false)}>
+                        <Link to='/login'><FaRegUser className='icon mouseHover' onMouseEnter={()=> setUserShowDropdown(true)}/></Link>
+                        
+                        {isAuthenticated&&<UserDropdown userDropdownStatus={showUserDropdown} />}
                     </li>
                     <li>
                         <Link to='/favourites'><FaRegHeart className='icon mouseHover'/></Link>

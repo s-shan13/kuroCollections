@@ -2,16 +2,22 @@
     text-decoration: none;
     color: white;
     font-family: Poppins, sans-serif;
-    margin: 0.75rem;
-    
+    margin-right: 0.75rem;
 }
 
 .showDropdown{
     position: fixed;
     padding-top: 1rem;
-
+}
+.hideDropdown{
+    display: none;
 }
 
-.hideDropdown{
+.showUserDropdown {
+    position: fixed;
+    margin-left: 0.5rem;
+}
+
+.hideUserDropdown {
     display: none;
 }
