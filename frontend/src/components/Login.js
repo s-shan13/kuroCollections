@@ -31,7 +31,7 @@ export default function Login() {
         if(isAuthenticated){
             navigate("/profile")
         }
-      }, [dispatch,alert, error])
+      }, [dispatch,alert, error, isAuthenticated])
     
 
   return (

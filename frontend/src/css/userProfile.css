@@ -1,4 +1,18 @@
 .mainUserProfile {
     height: 100vh;
-    background-color: plum;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.details-container{
+    height: auto;
+    min-height: 70%;
+    width: 40%;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    margin-top: 3rem;
+    text-align: center;
+    box-shadow: 0 0 4rem 1rem rgb(66, 66, 66);
 }

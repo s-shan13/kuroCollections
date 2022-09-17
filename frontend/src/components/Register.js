@@ -1,20 +1,45 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import '../css/login.css'
+import { createAccount, clearErrors } from '../actions/userAction'
+import { useDispatch, useSelector } from 'react-redux'
+import { useAlert } from 'react-alert'
+
+
+
 export default function Login() {
 
     const [loginEmail, setLoginEmail] = useState("")
     const [name, setName] = useState("")
     const [loginPassword, setLoginPassword ] = useState("")
     const [confirmPass, setConfirmPass] = useState("")
+    const dispatch = useDispatch()
+    const alert = useAlert()
+    const navigate = useNavigate()
+    const {isAuthenticated, error} = useSelector(state=>state.user)
 
     const handleRegisterSubmit = (e) =>{
         e.preventDefault()
-        setLoginEmail(e.target[0].value)
-        setName(e.target[1].value)
-        setLoginPassword(e.target[2].value)
-        setConfirmPass(e.target[3].value())
+
+        if(e.target[2].value.length < 8){
+            alert.error("Password should be at least 8 characters")
+        }else if(e.target[2].value === e.target[3].value){
+            dispatch(createAccount(loginEmail, loginPassword, name))
+        }else{
+            alert.error("Passwords do not match")
+        }
     }
+    useEffect(()=>{
+        //Checking for errors
+        if(error){
+            alert.error(error)
+            dispatch(clearErrors())
+        }
+        //Redirecting is user is already logged in
+        if(isAuthenticated){
+            navigate("/profile")
+        }
+    }, [dispatch, isAuthenticated])
 
   return (
     <div className='mainLogin'>

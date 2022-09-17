@@ -1,9 +1,4 @@
-/**
- * Header => shop all (dropdown with categories)
- * Main home page
- * latest arrivals
- * Shop by category
- */
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header';
 import Home from './components/Home';
@@ -15,8 +10,15 @@ import './css/app.css'
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Register from './components/Register';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { checkLogin } from './actions/userAction';
 
 function App() {
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(checkLogin())
+  },[])
   return (
     <Router>
       <Header />
