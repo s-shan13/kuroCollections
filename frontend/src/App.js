@@ -15,6 +15,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { checkLogin } from './actions/userAction';
 import Orders from './components/Orders'
 import UpdateProfile from './components/UpdateProfile';
+import Search from './components/Search';
+
 
 function App() {
   const dispatch = useDispatch()
@@ -39,8 +41,8 @@ function App() {
         <Route path='/orders' element={<Orders />} exact></Route>
         <Route path='/profile/update' element={<UpdateProfile />} exact></Route>
         <Route path='/profile' element={<UserProfile />} exact></Route>
-        <Route path='/favourites' element={<AllProducts prodCategory={'favourites'} />} exact></Route>
         <Route path='/bag' element={<AllProducts filter={'inCart'}/>} exact></Route>
+        <Route path='/search' element={<Search />} exact></Route>
         
       </Routes>
       <Footer />

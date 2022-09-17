@@ -8,6 +8,7 @@ import {withStyles} from '@mui/styles'
 import { Link } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 import MetaData from './MetaData'
+import Loader from './Loader'
 
 const CustomSlider = withStyles({
     root: {
@@ -55,7 +56,7 @@ export default function AllProducts( props ) {
   },[dispatch, prodCategory, price, alert, error])
   return (
     <>
-      {loading?<h1>loading</h1>:
+      {loading?<Loader />:
       <div className='mainAllProducts'>
         <h2 className='all-products-heading'>{title}</h2>
         <MetaData title={`Kuro Collections - ${title}`} />

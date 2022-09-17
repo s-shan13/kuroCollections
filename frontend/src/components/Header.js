@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../images/logo.png'
 import '../css/header.css'
-import { FaRegUser, FaRegHeart, FaShoppingBag } from "react-icons/fa";
+import { FaRegUser, FaShoppingBag, FaSearch } from "react-icons/fa";
 import Dropdown from './Dropdown';
 import UserDropdown from './UserDropdown';
 import { useSelector } from 'react-redux';
@@ -36,13 +36,14 @@ export default function Header() {
             </div>
             <div className='iconsDiv' >
                 <ul className='iconsList'>
+                    <li >
+                        <Link to='/search'><FaSearch className='icon mouseHover'/></Link>
+                        
+                    </li>
                     <li onMouseLeave={()=>setUserShowDropdown(false)}>
                         <Link to='/login'><FaRegUser className='icon mouseHover' onMouseEnter={()=> setUserShowDropdown(true)}/></Link>
                         
                         {isAuthenticated&&<UserDropdown userDropdownStatus={showUserDropdown} />}
-                    </li>
-                    <li>
-                        <Link to='/favourites'><FaRegHeart className='icon mouseHover'/></Link>
                     </li>
                     <li>
                         <Link to='/bag'><FaShoppingBag className='icon mouseHover'/></Link>

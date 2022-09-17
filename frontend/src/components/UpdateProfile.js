@@ -4,12 +4,11 @@ import '../css/login.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { checkLogin, clearErrors, login } from '../actions/userAction'
 import { useAlert } from 'react-alert'
-import { useNavigate } from 'react-router-dom'
 import { updateDetails } from '../actions/updateAction'
+import MetaData from './MetaData'
 
 export default function UpdateProfile() {
 
-    const navigate = useNavigate()
     const {user} = useSelector(state=>state.user)
     const {error, isUpdated, loading} = useSelector(state=>state.updated)
     const alert = useAlert()
@@ -45,6 +44,7 @@ export default function UpdateProfile() {
     <div className='mainLogin'>
         <div className='login-container'>
             <h2 className='login-title'>Update details</h2>
+            <MetaData title="Update Profile" />
             <form onSubmit={handleUpdateSubmit}>
                 <input type="email" required className="form-input" value={user&&newEmail} onChange={(e)=>setNewEmail(e.target.value)} />
 

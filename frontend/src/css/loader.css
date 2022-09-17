@@ -1,0 +1,23 @@
+.mainLoader{
+    height: 100vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainLoader>div{
+    width: 10vmax;
+    background-color: black;
+    height: 10vmax;
+    border-bottom: 5px solid white;
+    border-radius: 50%;
+    animation: rotate 700ms linear infinite;
+}
+
+@keyframes rotate{
+    to{
+        transform: rotateZ(-360deg);
+    }
+}

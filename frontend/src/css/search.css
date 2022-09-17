@@ -1,0 +1,39 @@
+.mainSearch{
+    height:100vh;
+    background-color:black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: poppins, sans-serif;
+    flex-direction: column;
+}
+.search-bar{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.search-box{
+    color: white;
+    background-color: black;
+    border: 1px solid gray;
+    padding: 1rem;
+    width: 30%;
+}
+
+.search-btn{
+    padding:0.7rem;
+    border:1px solid white;
+    width: 7.5%;
+    text-align: center;
+}
+.search-btn:hover{
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    transition: 0.9s;
+}
+.searh-products-container{
+    display: flex;
+}
