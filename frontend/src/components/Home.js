@@ -11,7 +11,7 @@ export default function Home() {
 
   const alert = useAlert()
   const dispatch = useDispatch();
-  const {loading, error, products, productsCount} = useSelector(state=>state.products)
+  const {loading, error, products} = useSelector(state=>state.products)
 
   useEffect(()=>{
     if(error){
@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <div className='mainHomeDiv'>
 
-      <MetaData title="Kuro Collection - Home" />
+      <MetaData title="Kuro Collections - Home" />
       <div className='top'>
         <Typewriter 
           onInit={(typewriter)=>{

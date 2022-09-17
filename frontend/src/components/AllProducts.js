@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react'
 import Slider from '@mui/material/Slider'
 import {withStyles} from '@mui/styles'
 import { Link } from 'react-router-dom'
+import { useAlert } from 'react-alert'
+import MetaData from './MetaData'
 
 const CustomSlider = withStyles({
     root: {
@@ -30,9 +32,13 @@ const CustomSlider = withStyles({
 export default function AllProducts( props ) {
 
   const dispatch = useDispatch()
+  const alert = useAlert()
 
   const {products, loading, error} = useSelector(state=>state.products)
-  const {prodCategory, title} = props
+  let {prodCategory, title} = props
+  if(!title){
+    title = "All Products"
+  }
 
   const [price, setPrice] = useState([0,150])
 
@@ -41,14 +47,18 @@ export default function AllProducts( props ) {
   }
 
   useEffect(()=>{
+    if(error){
+      alert.error(error)
+      dispatch(clearErrors())
+    }
     dispatch(getProducts(prodCategory, price))
-  },[dispatch, prodCategory, price])
+  },[dispatch, prodCategory, price, alert, error])
   return (
     <>
       {loading?<h1>loading</h1>:
       <div className='mainAllProducts'>
-        <h2 className='all-products-heading'>{title?title:"All items"}</h2>
-
+        <h2 className='all-products-heading'>{title}</h2>
+        <MetaData title={`Kuro Collections - ${title}`} />
         <div className='main-body'>
           <div className='filter-container'>
             <p>Price</p>
