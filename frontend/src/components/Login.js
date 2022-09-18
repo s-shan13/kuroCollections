@@ -37,17 +37,23 @@ export default function Login() {
   return (
     <div className='mainLogin'>
         <div className='login-container'>
-            <h2 className='login-title'>Log in</h2>
+            
             <form onSubmit={handleLoginSubmit}>
+                <h2 className='login-title'>Log in</h2>
                 <input type="email" required placeHolder="Email" className="form-input" value={loginEmail} onChange={(e)=>setLoginEmail(e.target.value)} />
 
                 <input type="password" required placeHolder="Password" className="form-input" value={loginPassword} onChange={(e)=>setLoginPassword(e.target.value)} />
 
                 <input type="submit" className='login-button' value="login" />
             </form>
-            <div className='register-text'>
-                <h3>Or</h3>
-                <h3><Link className='register-link' to="/register">Register</Link></h3>
+            <div className='options-div'>
+                <div className='register-text'>
+                    <h3>Or</h3>
+                    <h3><Link className='register-link options-link' to="/register">Register</Link></h3>
+                </div>
+                <div className='forgot-password-div'>
+                    <Link to="/password/reset" className='options-link'>Forgot password?</Link>
+                </div>
             </div>
         </div>
     </div>

@@ -25,7 +25,7 @@ export default function UserProfile() {
       <div className='bottom-options'>
         <Link className='profile-option' to="/orders">My orders</Link>
         <Link className='profile-option' to="/profile/update">Update profile</Link>
-        <Link className='profile-option' to="/pass/reset">Reset password</Link>
+        <Link className='profile-option' to="/password/reset">Reset password</Link>
       </div>
         
         

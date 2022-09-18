@@ -16,6 +16,7 @@ import { checkLogin } from './actions/userAction';
 import Orders from './components/Orders'
 import UpdateProfile from './components/UpdateProfile';
 import Search from './components/Search';
+import ResetPassword from './components/ResetPassword';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path='/profile' element={<UserProfile />} exact></Route>
         <Route path='/bag' element={<AllProducts filter={'inCart'}/>} exact></Route>
         <Route path='/search' element={<Search />} exact></Route>
+        <Route path='/password/reset' element={<ResetPassword />} exact></Route>
         
       </Routes>
       <Footer />

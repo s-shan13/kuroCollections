@@ -52,9 +52,8 @@ export default function UpdateProfile() {
 
                 <input type="submit" className='login-button' value="Update" />
             </form>
-            <div className='register-text'>
-                <h3>Or</h3>
-                <h3><Link className='register-link' to="/profile">Reset</Link></h3>
+            <div className='options-div'>
+                <h3>Or<Link className='register-link options-link' to="/profile">Reset</Link></h3>
             </div>
         </div>
     </div>

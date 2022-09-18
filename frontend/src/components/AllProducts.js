@@ -10,6 +10,7 @@ import { useAlert } from 'react-alert'
 import MetaData from './MetaData'
 import Loader from './Loader'
 
+//Styling for Price range slider
 const CustomSlider = withStyles({
     root: {
         color: "white",
@@ -54,6 +55,7 @@ export default function AllProducts( props ) {
     }
     dispatch(getProducts(prodCategory, price))
   },[dispatch, prodCategory, price, alert, error])
+  
   return (
     <>
       {loading?<Loader />:

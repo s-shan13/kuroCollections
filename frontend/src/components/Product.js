@@ -6,7 +6,6 @@ import ReactStars from "react-rating-stars-component"
 
 export default function Product({ product }) {
   //Configuration for reactStarts
-
   const options = {
     edit:false,
     color: "gray",

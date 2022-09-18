@@ -1,7 +1,22 @@
 .mainNewReleases {
-    height: 100vh;
-    background-color: orange;
+    
+    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+    font-family: poppins, sans-serif;
+}
+.new-releases-container{
+    width: 80%;
+    margin-top: 8rem;
+}
+.announcement{
+    text-align: center;
+    font-size: small;
+}
+.recent-items-div{
+    display: flex;
+    flex-wrap: wrap;
+
 }
