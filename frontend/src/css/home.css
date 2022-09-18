@@ -3,7 +3,7 @@
     background-color: black;
     color: white;
     font-family: Poppins, sans-serif;
-
+    min-width: 101vw;
 }
 .top{
     height: 100vh;
@@ -62,6 +62,13 @@
     transform: translateY(-0.2rem) ;
     cursor: pointer;
 }
+
+@media screen and (max-width:500px) {
+    .top{
+        margin: 2rem;
+    }
+}
+
 @media screen and (max-width:600px){
     .prodDetails>p{
         font-size:1.7vmax ;

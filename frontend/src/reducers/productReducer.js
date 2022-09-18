@@ -32,15 +32,18 @@ export const productReducer = (state={products:[]}, action)=>{
 export const productDetailsReducer = (state={products:{}}, action)=>{
     switch(action.type){
         case "PRODUCT_DETAILS_REQ":
+        case "ADD_BASKET_REQ":
             return{
                 loading: true,
                 ...state
             }
+        case "ADD_BASKET_SUCC":
         case "PRODUCT_DETAILS_SUCC":
             return{
                 loading: false,
                 product: action.payload
             }
+        case "ADD_BASKET_FAIL":
         case "PRODUCT_DETAILS_FAIL":
             return{
                 loading: false,

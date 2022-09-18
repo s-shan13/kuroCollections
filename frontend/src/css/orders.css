@@ -1,0 +1,43 @@
+.mainOrders{
+    height:100vh;
+    background-color: black;
+    color: white;
+    font-family: poppins, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 101vw;
+}
+.mainOrders>h2{
+    margin-top: 3rem;
+    border-bottom: 1px solid white;
+}
+.orders-div{
+    margin-top: 1rem;
+    border-left: 0.5px solid gray;
+    border-right: 0.5px solid gray;
+    width: 40%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.all-link{
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    color: white;
+}
+.all-link:hover{
+    color: black;
+    background-color: white;
+    transition: 0.8s;
+}
+@media only screen and (max-width:620px) {
+    .orders-div>p{
+        margin:2rem
+    }
+
+}

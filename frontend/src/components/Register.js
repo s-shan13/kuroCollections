@@ -56,10 +56,12 @@ export default function Login() {
 
                 <input type="submit" className='login-button' value="Register" />
             </form>
-            <div className='register-text'>
-                <h3>Or</h3>
-                <h3><Link className='register-link' to="/login">Login</Link></h3>
+            <div className='options-div'>
+                <div className='register-text'>
+                    <h3><Link className='register-link' to="/login">Login</Link></h3>
+                </div>
             </div>
+            
         </div>
     </div>
   )

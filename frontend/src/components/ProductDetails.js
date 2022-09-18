@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import '../css/productDetails.css'
 import Carousel from "react-material-ui-carousel"
 import {useSelector, useDispatch} from 'react-redux'
-import { clearErrors, getProductDetails, getProducts } from '../actions/productAction'
+import { addToBasket, clearErrors, getProductDetails, getProducts } from '../actions/productAction'
 import { useParams } from 'react-router-dom'
 import ReactStars from 'react-rating-stars-component'
 import Product from './Product'
@@ -36,6 +36,14 @@ export default function ProductDetails() {
         isHalf: true,
     }
 
+    const addToCart = () => {
+        if(product&&product.stock < 1){
+            alert.error("This product has sold out")
+        }else{
+            dispatch(addToBasket(product._id))
+        }
+    }
+
   return (
     <>
         {loading? console.log("loading"):(<div className='mainProductDetails'>
@@ -48,7 +56,7 @@ export default function ProductDetails() {
                 </Carousel>
             </div>
             <div className='product-details-div'>
-                <h2>{product&&product.name}</h2>
+                <h2>{product&&product.name }</h2>
                 <p className='desc'>{product&&product.description}</p>
                 <p>Size</p>
                 <div className='qty'>
@@ -58,7 +66,7 @@ export default function ProductDetails() {
                     <button>+</button>
                 </div>
                 <p>£{product&&product.price}</p>
-                <button>Add to cart</button>
+                <button onClick={addToCart}>Add to cart</button>
                 <span className={product&&product.stock<1?"redTxt":"greenTxt"}>{product&&product.stock<1?"Sold out":"In Stock"}</span>
                 <p></p>
                 <ReactStars {...options} />

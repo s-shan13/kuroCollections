@@ -11,12 +11,13 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Register from './components/Register';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { checkLogin } from './actions/userAction';
 import Orders from './components/Orders'
 import UpdateProfile from './components/UpdateProfile';
 import Search from './components/Search';
 import ResetPassword from './components/ResetPassword';
+import Cart from './components/Cart';
 
 
 function App() {
@@ -42,7 +43,7 @@ function App() {
         <Route path='/orders' element={<Orders />} exact></Route>
         <Route path='/profile/update' element={<UpdateProfile />} exact></Route>
         <Route path='/profile' element={<UserProfile />} exact></Route>
-        <Route path='/bag' element={<AllProducts filter={'inCart'}/>} exact></Route>
+        <Route path='/cart' element={<Cart />} exact></Route>
         <Route path='/search' element={<Search />} exact></Route>
         <Route path='/password/reset' element={<ResetPassword />} exact></Route>
         

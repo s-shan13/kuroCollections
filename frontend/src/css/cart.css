@@ -1,0 +1,41 @@
+.mainCart{
+    color: white;
+    background-color: black;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.price-total-div{
+    border-right: 1px solid white;
+    height: 30%;
+    width: 20%;
+}
+.cart-items-div{
+    height: 70%;
+    width: 50%;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 2rem;
+    margin-top: 1rem;
+}
+.total-price{
+    border-top: 1px solid gray;
+    padding-top: 0.5rem;
+}
+.cart-items-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media only screen and (max-width:750px) {
+    .price-total-div{
+        width: 45%;
+        padding:2rem
+    }
+}

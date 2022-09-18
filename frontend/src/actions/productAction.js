@@ -41,6 +41,17 @@ export const getProductDetails = (id) => async (dispatch) =>{
     }
 }
 
+export const addToBasket = (id) => async (dispatch) =>{
+    try {
+        dispatch({type:"ADD_BASKET_REQ"})
+
+        dispatch({type:"ADD_BASKET_SUCC"})
+
+    } catch (error) {
+        dispatch({type:"ADD_BASKET_FAIL"})
+    }
+}
+
 export const clearErrors = () => async (dispatch) =>{
     dispatch({
         type: "CLEAR_ALL_ERRORS"

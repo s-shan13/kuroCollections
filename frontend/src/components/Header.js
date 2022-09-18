@@ -6,6 +6,7 @@ import { FaRegUser, FaShoppingBag, FaSearch } from "react-icons/fa";
 import Dropdown from './Dropdown';
 import UserDropdown from './UserDropdown';
 import { useSelector } from 'react-redux';
+import {ReactNavbar} from "overlay-navbar"
 
 export default function Header() {
 
@@ -47,9 +48,14 @@ export default function Header() {
                         {isAuthenticated&&<UserDropdown userDropdownStatus={showUserDropdown} />}
                     </li>
                     <li>
-                        <Link to='/bag'><FaShoppingBag className='icon mouseHover'/></Link>
+                        <Link to='/cart'><FaShoppingBag className='icon mouseHover'/></Link>
                     </li>
-                </ul>    
+                </ul>  
+            </div>
+            <div className='overlay-container'>
+                <ReactNavbar
+                    burgerColor="white" burgerColorHover="gray" navColor1="black" logo={logo} logoWidth="10px" logoHeight="80px" link1Text="Home" link1Url="/" link2Text="New Releases"  link2Url="/new-releases" link3Text="Shop All" link3Url="/all" link1Color="white" link4Text="" link1ColorHover="gray" link1Margin="1rem"
+                />
             </div>
         </div>
     )

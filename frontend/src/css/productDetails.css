@@ -9,12 +9,14 @@
     justify-content: center;
     align-items: center;
     padding: 15vh 0 15vh 0;
+    
 }
 .product-image-div {
     height:60vh;
     width: 30%;
     border: 1px solid white;
     text-align: center;
+    min-width: 400px;
 }
 .CarouselImage{
     height: auto;
@@ -87,4 +89,33 @@
     color: white;
     background-color: black;
     overflow: auto;
+}
+
+@media only screen and (max-width:850px) {
+    .top-container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .product-image-div{
+        width: 60%;
+        margin-bottom: 6rem;
+    }
+    .product-details-div{
+        width: 60%;
+        text-align: center;
+    }
+
+}
+@media only screen and (max-width:600px) {
+    .mainProductDetails{
+        margin:1rem
+    }
+    .top-container{
+        margin: 2rem;
+    }
+    .product-image-div{
+        margin: 2rem;
+        min-width: none;
+    }
 }

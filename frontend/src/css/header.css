@@ -14,7 +14,6 @@
     width: 25%;
     display: flex;
     justify-content: center;
-
 }
 .logo {
     height: 100%;
@@ -66,5 +65,31 @@
     cursor: pointer;
     opacity: 0.6 ;
     transition: 0.3s;
+}
+.overlay-container{
+    display: none;
+}
 
+@media only screen and (max-width:850px) {
+    .icon{
+        margin: 0.2rem
+    }
+    .navbarDiv{
+        display: none;
+    }
+    .logoDiv{
+        width: 100%;
+    }
+    
+    .overlay-container{
+        display: flex;
+        border: 1px solid wheat;
+
+    }
+}
+@media only screen and (max-width:500px) {
+    .logoDiv, .iconsDiv{
+        z-index: 123;
+        margin-top: -2rem;
+    }
 }
