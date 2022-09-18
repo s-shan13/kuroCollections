@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom'
 import ReactStars from 'react-rating-stars-component'
 import Product from './Product'
 import { useAlert } from 'react-alert'
+import Loader from './Loader'
 
 
 export default function ProductDetails() {
@@ -47,7 +48,7 @@ export default function ProductDetails() {
 
   return (
     <>
-        {loading? console.log("loading"):(<div className='mainProductDetails'>
+        {loading? <Loader/>:(<div className='mainProductDetails'>
         <div className='top-container'>
             <div className='product-image-div'>
                 <Carousel>

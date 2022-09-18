@@ -18,6 +18,7 @@ import UpdateProfile from './components/UpdateProfile';
 import Search from './components/Search';
 import ResetPassword from './components/ResetPassword';
 import Cart from './components/Cart';
+import NotFound from './components/NotFound';
 
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
   useEffect(()=>{
     dispatch(checkLogin())
   },[])
+
+  window.addEventListener("contextmenu", (e)=>e.preventDefault())
+
   return (
     <Router>
       <Header />
@@ -46,7 +50,7 @@ function App() {
         <Route path='/cart' element={<Cart />} exact></Route>
         <Route path='/search' element={<Search />} exact></Route>
         <Route path='/password/reset' element={<ResetPassword />} exact></Route>
-        
+        <Route path='/:id' element={<NotFound />}></Route>
       </Routes>
       <Footer />
     </Router>

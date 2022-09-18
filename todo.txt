@@ -1,4 +1,0 @@
-- Make new email for reset password link 
-- Verify reset password feature
-- Update ecommerce api repository
-- In handle review record index of review is user has reviewed or keep it -1 and use index for if condition

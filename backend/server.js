@@ -1,5 +1,4 @@
-//Change start to node in json
-
+const path = require("path")
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -20,7 +19,10 @@ process.on("uncaughtException", (err)=>{
 })
 
 //config
-dotenv.config({path:"./config/config.env"})
+if(process.env.NODE_ENV!=="PRODUCTION"){
+    dotenv.config({path:"./config/config.env"})
+}
+
 
 //Connect to database
 mongoose.connect(process.env.DB_URL, {useNewUrlParser:true, useUnifiedTopology:true}).then(
@@ -43,10 +45,11 @@ app.use("/api/v1", productRouter)
 app.use("/api/v1", userRouter)
 app.use("/api/v1", orderRouter)
 app.use(errorMiddleware)
+app.use(express.static(path.join(__dirname, "../frontend/build")))
 
 //routing
-app.get('/', (req, res) => {
-    res.send('backend')
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"))
 })
 
 const server = app.listen(PORT)
