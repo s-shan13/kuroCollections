@@ -24,13 +24,13 @@ export default function UserDropdown( props ) {
                 <Link className='dropdownLink mouseHover' to='/dashboard'>Dashboard</Link>
             </li>}
             <li>
-                <Link className='dropdownLink mouseHover' to='/profile'>Profile</Link>
+                <Link className='dropdownLink mouseHover' to='/profile'><h4>Profile</h4></Link>
             </li>
             <li>
-                <Link className='dropdownLink mouseHover' to='/orders'>Orders</Link>
+                <Link className='dropdownLink mouseHover' to='/orders'><h4>Orders</h4></Link>
             </li>
             <li>
-                <Link to="/" onClick={handleLogOut} className='dropdownLink mouseHover'>Logout</Link>
+                <Link to="/" onClick={handleLogOut} className='dropdownLink mouseHover'><h4>Logout</h4></Link>
             </li>
         </ul>
     </div>

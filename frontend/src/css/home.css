@@ -29,18 +29,17 @@
 }
 
 .productCard{
-    width: 18vmax;
+    width: 15vmax;
     max-height: 21vmax;
     display: flex;
     flex-direction: column;
     text-decoration: none;
     color: white;
     font-family: Poppins, sans-serif;
-    margin: 2vmax;
     background-color: transparent;
     border-radius: 0 0 0.5rem 0.5rem;
     justify-content: center;
-    padding-bottom: 2rem;
+    padding: 2rem;
 }
 .productImg{
     border-radius: 0.5rem 0.5rem 0 0;
@@ -55,13 +54,13 @@
     font-size: 1.2vmax;
 }
 .prodDetails>p {
-    
     font-weight: 600;
 }
 .productCard:hover{
     transition: all 0.2s;
     background-color: rgb(39, 32, 32);
     transform: translateY(-0.2rem) ;
+    cursor: pointer;
 }
 @media screen and (max-width:600px){
     .prodDetails>p{

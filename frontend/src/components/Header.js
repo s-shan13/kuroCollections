@@ -12,6 +12,7 @@ export default function Header() {
     const [showDropdown, setShowDropdown] = useState(false)
     const [showUserDropdown, setUserShowDropdown] = useState(false)
     const {isAuthenticated} = useSelector(state=>state.user)
+    
 
     return (
         <div className='mainHeaderDiv'>

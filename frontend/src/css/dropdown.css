@@ -3,13 +3,13 @@
     color: white;
     font-family: Poppins, sans-serif;
     margin-right: 0.75rem;
-
 }
 
 .showDropdown{
     position: fixed;
     padding-top: 1rem;
 }
+
 .hideDropdown{
     display: none;
 }

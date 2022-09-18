@@ -1,15 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-Link{
-    border: 2px solid white ;
-}
+
 .mainHeaderDiv{
     height: 10vh;
-    background-color: black;
-    position: fixed;
+    position: absolute;
     width: 100%;
     background-color: transparent;
     display: flex;
 }
+
 
 .logoDiv{
     height: 100%;
@@ -68,4 +66,5 @@ Link{
     cursor: pointer;
     opacity: 0.6 ;
     transition: 0.3s;
+
 }
