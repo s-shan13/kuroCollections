@@ -31,7 +31,14 @@
     font-family: poppins, sans-serif;
     padding-left: 2rem;
 }
-
+.size-input{
+    padding-bottom: 1rem;
+}
+.sizes-select{
+    background-color: black;
+    color: white;
+    padding: 0.3rem;
+}
 .product-details-div>p {
     padding-bottom: 1rem;
 }

@@ -8,6 +8,7 @@ import ReactStars from 'react-rating-stars-component'
 import Product from './Product'
 import { useAlert } from 'react-alert'
 
+
 export default function ProductDetails() {
     
     const {id} = useParams()
@@ -58,7 +59,16 @@ export default function ProductDetails() {
             <div className='product-details-div'>
                 <h2>{product&&product.name }</h2>
                 <p className='desc'>{product&&product.description}</p>
-                <p>Size</p>
+                <div className='size-input'>
+                    <p>Size:</p>
+                    <select class="sizes-select">
+                        <option value="small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                    </select>
+                    
+                </div>
+                
                 <div className='qty'>
                     <p>Quantity:</p>
                     <button>-</button>
