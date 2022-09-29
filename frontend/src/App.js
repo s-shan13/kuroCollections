@@ -27,8 +27,7 @@ function App() {
   useEffect(()=>{
     dispatch(checkLogin())
   },[])
-
-  window.addEventListener("contextmenu", (e)=>e.preventDefault())
+  //test
 
   return (
     <Router>
